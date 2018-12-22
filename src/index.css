@@ -1,20 +1,63 @@
 html {
     background: url("./pictures/uss-george-washington-aircraft-carrier.jpg") no-repeat center center fixed;
+    background-color: #9b9b9b;
+    background-blend-mode: screen;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
 }
 
-#getPage
+#firstPage
 {
-    background-image: linear-gradient(45deg, #61dafb, #181234);
     margin: 0 auto;
     width: 300px;
     height: 200px;
     position: absolute;
+    align-content: center;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
+}
+
+#getPage
+{
+    background-image: linear-gradient(#181234,#61dafb);
+}
+
+#fileInput, #button
+{
+    -moz-box-shadow:inset 0px -3px 7px 0px #29bbff;
+    -webkit-box-shadow:inset 0px -3px 7px 0px #29bbff;
+    box-shadow:inset 0px -3px 7px 0px #29bbff;
+    background-color:transparent;
+    -moz-border-radius:3px;
+    -webkit-border-radius:3px;
+    border-radius:3px;
+    border:1px solid #0b0e07;
+    display:inline-block;
+    cursor:pointer;
+    color:#ffffff;
+    font-family:Arial;
+    font-size:15px;
+    padding:9px 23px;
+    text-decoration:none;
+    text-shadow:0px 1px 0px #263666;
+}
+
+#fileInput:hover, #button:hover
+{
+    background-color:transparent;
+}
+
+#fileInput:active, #button:active
+{
+    position:relative;
+    top:1px;
+}
+
+h1
+{
+    color: #9b9b9b;
 }

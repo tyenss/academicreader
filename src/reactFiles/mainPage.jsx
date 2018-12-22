@@ -36,7 +36,8 @@ export default class FileChooser extends React.Component {
             // Use DataTransferItemList interface to access the file(s)
             for (var i = 0; i < ev.dataTransfer.items.length; i++) {
                 // If dropped items aren't files, reject them
-                if (ev.dataTransfer.items[i].kind === 'file') {
+                if (ev.dataTransfer.items[i].kind === 'file')
+                {
                     var file = ev.dataTransfer.items[i].getAsFile();
                     console.log('... file[' + i + '].name = ' + file.name);
                 }
@@ -69,10 +70,11 @@ export default class FileChooser extends React.Component {
     render()
     {
         return (
-            <div id={"getPage"} ondrop={this.dropHandler.bind(this, event)} ondragover={this.dragOverHandler.bind(this, event)}>
-                <form>
+            <div id={"firstPage"}>
+                <h1>Get File</h1>
+                <form id={"getPage"} ondrop={this.dropHandler.bind(this)} ondragover={this.dragOverHandler.bind(this)}>
                     <input type="file" name="file" accept={".xlsx,.xls,csv"} id={"fileInput"}></input>
-                    <br/><input type="button" value="Submit" onClick={this.handleFiles.bind(this)}/>
+                    <br/><input type="button" value="Submit" onClick={this.handleFiles.bind(this)} id={"button"}/>
                 </form>
 
 
