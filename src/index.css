@@ -10,20 +10,23 @@ html {
 
 #firstPage
 {
-    margin: 0 auto;
-    width: 300px;
+    margin: auto;
+    width: 400px;
     height: 200px;
     position: absolute;
-    align-content: center;
-    top: 0;
+    text-align: center;
     right: 0;
     bottom: 0;
     left: 0;
+    background-image: linear-gradient(#181234,#61dafb);
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
 }
 
 #getPage
 {
-    background-image: linear-gradient(#181234,#61dafb);
+
 }
 
 #fileInput, #button
@@ -44,6 +47,7 @@ html {
     padding:9px 23px;
     text-decoration:none;
     text-shadow:0px 1px 0px #263666;
+    width: fit-content;
 }
 
 #fileInput:hover, #button:hover
@@ -60,4 +64,84 @@ html {
 h1
 {
     color: #9b9b9b;
+}
+
+#qaPage
+{
+    margin: auto;
+    width: 400px;
+    height: 400px;
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(#181234,#61dafb);
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+.qa
+{
+    height:150px;
+    text-align: center;
+    font-family:"Times New Roman";
+    color: white;
+    font-size: 20px;
+    line-height: 150px;
+}
+
+#qaTable
+{
+    margin: auto;
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    text-align: center;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: linear-gradient(#181234,#61dafb);
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+}
+
+table
+{
+    border-collapse: collapse;
+    width:100%;
+    height:100%;
+}
+
+#firstRow:first-child
+{
+    background-color: #008075;
+}
+
+table, th, td
+{
+    border: 1px solid black;
+}
+
+th
+{
+    text-align: center;
+}
+
+td
+{
+    height: 50px;
+    vertical-align: center;
+}
+
+tr:hover
+{
+    background-color: #9b9b9b;
+}
+
+tr:nth-child(even)
+{
+    background-color: #f2f2f2;
 }

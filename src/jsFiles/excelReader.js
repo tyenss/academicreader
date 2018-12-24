@@ -33,22 +33,30 @@ export default class excelReader
 
     getQuestion()
     {
-        let tempCount=this.counter;
-        console.log(this.qaArray);
-        return this.qaArray[tempCount].getQuestion();
+        return this.qaArray[this.counter].getQuestion();
     }
 
     getAnswer()
     {
-        let tempCount=this.counter;
         return this.qaArray[this.counter].getAnswer();
     }
 
     getQuestionAnswer()
     {
-        let temp={question:this.getQuestion(),answer:this.getAnswer()};
-        this.counter++;
-        return temp;
+        if (this.counter>=this.qaArray.length)
+        {
+            alert("No more questions left");
+        } else
+        {
+            let temp={question:this.getQuestion(),answer:this.getAnswer()};
+            this.counter++;
+            return temp;
+        }
+    }
+
+    getArray()
+    {
+        return this.qaArray;
     }
 
 }

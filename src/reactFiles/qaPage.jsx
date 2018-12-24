@@ -1,6 +1,8 @@
 import React from "react";
 import excelReader from "../jsFiles/excelReader.js";
 import global from "../jsFiles/globalVariables";
+import QaTable from "./qaTable";
+import ReactDOM from "react-dom";
 
 export default class QAPage extends React.Component
 {
@@ -28,14 +30,20 @@ export default class QAPage extends React.Component
         )
     }
 
+    getTable()
+    {
+        ReactDOM.render(<QaTable/>,document.getElementById("root"));
+    }
+
     render()
     {
 
         return(
-            <div>
-                <p>{this.state.question}</p>
-                <p>{this.state.answer}</p>
+            <div id={"qaPage"}>
+                <p className={"qa"}>{this.state.question}</p>
+                <p className={"qa"}>{this.state.answer}</p>
                 <button onClick={this.handleNext.bind(this)}>Next Question</button>
+                <button onClick={this.getTable.bind(this)}>QuestionList</button>
             </div>
         );
     }
