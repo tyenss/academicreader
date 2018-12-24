@@ -17,13 +17,24 @@ export default class excelReader
     {
         if (!(this.workbook===undefined))
         {
-            let worksheet=this.workbook.Sheets[this.workbook.SheetNames[0]];
-            let tempJSON=XLSX.utils.sheet_to_json(worksheet);
-            // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
-            for (let i=0;i<tempJSON.length;i++)
+            let counter=0;
+            while (this.workbook.SheetNames[counter]!==undefined)
             {
-                let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
-                this.qaArray.push(temp);
+                let worksheet=this.workbook.Sheets[this.workbook.SheetNames[counter]];
+                if (this.workbook.SheetNames==="Bonus")
+                {
+
+                } else
+                {
+                    let tempJSON=XLSX.utils.sheet_to_json(worksheet);
+                    // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
+                    for (let i=0;i<tempJSON.length;i++)
+                    {
+                        let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
+                        this.qaArray.push(temp);
+                    }
+                }
+                counter++;
             }
         }
 

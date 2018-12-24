@@ -14,6 +14,11 @@ export default class QAPage extends React.Component
             question:"a",
             answer:"b"
         };
+    }
+
+    componentDidMount()
+    {
+        window.excelReader.counter=0;
         this.handleNext();
     }
 
