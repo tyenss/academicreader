@@ -10,6 +10,9 @@ export default class excelReader
     {
         this.workbook=workbook;
         this.qaArray=[];
+        this.shuffledQaArray=[];
+        this.bonusQaArray=[];
+        this.shuffledBonusQaArray=[];
         this.counter=0;
         this.readExcel();
     }
@@ -18,28 +21,45 @@ export default class excelReader
         if (!(this.workbook===undefined))
         {
             let counter=0;
+
             while (this.workbook.SheetNames[counter]!==undefined)
             {
-                let worksheet=this.workbook.Sheets[this.workbook.SheetNames[counter]];
+                // console.log(this.workbook.SheetNames[counter]);
+            let worksheet=this.workbook.Sheets[this.workbook.SheetNames[counter]];
                 if (this.workbook.SheetNames==="Bonus")
                 {
-
-                } else
-                {
                     let tempJSON=XLSX.utils.sheet_to_json(worksheet);
-                    // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
                     for (let i=0;i<tempJSON.length;i++)
                     {
                         let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
-                        this.qaArray.push(temp);
+                        this.bonusQaArray.push(temp);
                     }
+                } else
+                {
+            let tempJSON=XLSX.utils.sheet_to_json(worksheet);
+                // console.log(tempJSON[0].Questions);
+                // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
+            for (let i=0;i<tempJSON.length;i++)
+            {
+                let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
+                this.qaArray.push(temp);
+                // console.log(this.qaArray);
+            }
+            // console.log(this.qaArray);
                 }
                 counter++;
             }
         }
-
         // console.log(this.qaArray);
+    //
+    // console.log(this.qaArray);
+    }
 
+    shuffleArray(seed)
+    {
+        let shuffleSeed = require('shuffle-seed');
+        this.qaArray=shuffleSeed.shuffle(this.qaArray,seed);
+        console.log(this.qaArray);
     }
 
     getQuestion()

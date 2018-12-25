@@ -18,7 +18,7 @@ export default class QAPage extends React.Component
 
     componentDidMount()
     {
-        window.excelReader.counter=0;
+        // window.excelReader.counter=0;
         this.handleNext();
     }
 
@@ -26,7 +26,7 @@ export default class QAPage extends React.Component
     {
         // console.log(window.excelReader);
         let temp=window.excelReader.getQuestionAnswer();
-        console.log(temp);
+        // console.log(temp);
         this.setState(
             {
                 question:temp.question,

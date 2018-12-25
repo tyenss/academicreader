@@ -18,6 +18,10 @@ export default class FileChooser extends React.Component {
         reader.onload = function (e) {
             var oFile = XLSX.read(e.target.result, {type: 'array'});//, cellDates:true, cellStyles:true
             window.excelReader = new excelReader(oFile);
+            if (document.getElementById("randomizerText").value!=="")
+            {
+                window.excelReader.shuffleArray(document.getElementById("randomizerText").value);
+            }
             // console.log(window.excelReader);
             ReactDOM.render(<QAPage/>, document.getElementById("root"));
         }
@@ -74,6 +78,7 @@ export default class FileChooser extends React.Component {
                 <h1>Get File</h1>
                 <form id={"getPage"} ondrop={this.dropHandler.bind(this)} ondragover={this.dragOverHandler.bind(this)}>
                     <input type="file" name="file" accept={".xlsx,.xls,csv"} id={"fileInput"}></input>
+                    <input type={"text"} placeholder={"Seed randomizer"} id={"randomizerText"}></input>
                     <br/><input type="button" value="Submit" onClick={this.handleFiles.bind(this)} id={"button"}/>
                 </form>
 

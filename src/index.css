@@ -1,7 +1,7 @@
 html {
-    background: url("./pictures/uss-george-washington-aircraft-carrier.jpg") no-repeat center center fixed;
-    background-color: #9b9b9b;
-    background-blend-mode: screen;
+    background: url("./pictures/uss-george-washington-aircraft-carrier.jpg"), linear-gradient(rgba(0,193,255,.25),#9b9b9b) no-repeat center center fixed;
+    /*background-color: linear-gradient(blue,#9b9b9b);*/
+    background-blend-mode: luminosity;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -106,6 +106,7 @@ h1
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    overflow-y: scroll;
 }
 
 table

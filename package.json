@@ -6,6 +6,7 @@
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-scripts": "2.1.1",
+    "shuffle-seed": "^1.1.6",
     "xlsx": "^0.14.1"
   },
   "scripts": {
