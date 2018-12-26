@@ -14,7 +14,6 @@ export default class QaTable extends React.Component
     componentDidMount()
     {
         let x=window.excelReader.getArray();
-        console.log(x);
         for (let i=0;i<x.length;i++)
         {
             let table=document.getElementById("table");

@@ -24,9 +24,18 @@ export default class QAPage extends React.Component
 
     handleNext()
     {
-        // console.log(window.excelReader);
         let temp=window.excelReader.getQuestionAnswer();
-        // console.log(temp);
+        this.setState(
+            {
+                question:temp.question,
+                answer:temp.answer
+            }
+        )
+    }
+
+    handleBonus()
+    {
+        let temp=window.excelReader.getBonusQuestionAnswer();
         this.setState(
             {
                 question:temp.question,
@@ -40,6 +49,13 @@ export default class QAPage extends React.Component
         ReactDOM.render(<QaTable/>,document.getElementById("root"));
     }
 
+    jumpToQuestion()
+    {
+        let number=document.getElementById("questionNumber").value;
+        window.excelReader.counter=parseInt(number);
+        this.handleNext();
+    }
+
     render()
     {
 
@@ -48,7 +64,13 @@ export default class QAPage extends React.Component
                 <p className={"qa"}>{this.state.question}</p>
                 <p className={"qa"}>{this.state.answer}</p>
                 <button onClick={this.handleNext.bind(this)}>Next Question</button>
+                <button onClick={this.handleBonus.bind(this)}>Bonus Question</button>
                 <button onClick={this.getTable.bind(this)}>QuestionList</button>
+                {/*<button onClick={this.getTable.bind(this)}>QuestionList</button>*/}
+                <form>
+                    <input type={"text"} placeholder={"Go to question number"} id={"questionNumber"}></input>
+                    <br/><input type="button" value="Submit" onClick={this.jumpToQuestion.bind(this)} id={"button"}/>
+                </form>
             </div>
         );
     }

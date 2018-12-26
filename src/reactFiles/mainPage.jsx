@@ -24,7 +24,7 @@ export default class FileChooser extends React.Component {
             }
             // console.log(window.excelReader);
             ReactDOM.render(<QAPage/>, document.getElementById("root"));
-        }
+        };
         reader.readAsArrayBuffer(e.files[0]);
         // console.log(window.excelReader);
 

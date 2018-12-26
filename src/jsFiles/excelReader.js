@@ -14,6 +14,7 @@ export default class excelReader
         this.bonusQaArray=[];
         this.shuffledBonusQaArray=[];
         this.counter=0;
+        this.bonusCounter=0;
         this.readExcel();
     }
     readExcel()
@@ -26,29 +27,29 @@ export default class excelReader
             {
                 // console.log(this.workbook.SheetNames[counter]);
             let worksheet=this.workbook.Sheets[this.workbook.SheetNames[counter]];
-                if (this.workbook.SheetNames==="Bonus")
-                {
-                    let tempJSON=XLSX.utils.sheet_to_json(worksheet);
-                    for (let i=0;i<tempJSON.length;i++)
-                    {
-                        let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
-                        this.bonusQaArray.push(temp);
-                    }
-                } else
-                {
-            let tempJSON=XLSX.utils.sheet_to_json(worksheet);
-                // console.log(tempJSON[0].Questions);
-                // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
-            for (let i=0;i<tempJSON.length;i++)
+            if (this.workbook.SheetNames[counter]==="Bonus")
             {
-                let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
-                this.qaArray.push(temp);
+                let tempJSON=XLSX.utils.sheet_to_json(worksheet);
+                for (let i=0;i<tempJSON.length;i++)
+                {
+                    let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
+                    this.bonusQaArray.push(temp);
+                }
+            } else
+            {
+                let tempJSON=XLSX.utils.sheet_to_json(worksheet);
+                    // console.log(tempJSON[0].Questions);
+                    // console.log(new questionAnswer(tempJSON[0].Questions,tempJSON[0].Answers));
+                for (let i=0;i<tempJSON.length;i++)
+                {
+                    let temp=new questionAnswer(tempJSON[i].Questions,tempJSON[i].Answers);
+                    this.qaArray.push(temp);
+                    // console.log(this.qaArray);
+                }
                 // console.log(this.qaArray);
             }
-            // console.log(this.qaArray);
-                }
-                counter++;
-            }
+            counter++;
+        }
         }
         // console.log(this.qaArray);
     //
@@ -90,4 +91,26 @@ export default class excelReader
         return this.qaArray;
     }
 
+    getBonusQuestion()
+    {
+        return this.bonusQaArray[this.bonusCounter].getQuestion();
+    }
+
+    getBonusAnswer()
+    {
+        return this.bonusQaArray[this.bonusCounter].getAnswer();
+    }
+
+    getBonusQuestionAnswer()
+    {
+        if (this.bonusCounter>=this.bonusQaArray.length)
+        {
+            alert("No more bonus questions left");
+        } else
+        {
+            let temp={question:this.getBonusQuestion(),answer:this.getBonusAnswer()};
+            this.bonusCounter++;
+            return temp;
+        }
+    }
 }
