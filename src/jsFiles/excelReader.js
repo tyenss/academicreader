@@ -17,6 +17,7 @@ export default class excelReader
         this.bonusCounter=0;
         this.readExcel();
     }
+
     readExcel()
     {
         if (!(this.workbook===undefined))
@@ -73,6 +74,7 @@ export default class excelReader
         return this.qaArray[this.counter].getAnswer();
     }
 
+    //gets question and answer pair then increases inherit counter
     getQuestionAnswer()
     {
         if (this.counter>=this.qaArray.length)
@@ -83,6 +85,26 @@ export default class excelReader
             let temp={question:this.getQuestion(),answer:this.getAnswer()};
             this.counter++;
             return temp;
+        }
+    }
+    //gets the previous question answer pair
+    getPreviousQuestionAnswer()
+    {
+        if (this.counter===0)
+        {
+            alert("This is the first question");
+        } else
+        {
+            this.counter--;
+            if (this.counter>=this.qaArray.length)
+            {
+                alert("No more questions left");
+            } else
+            {
+                let temp={question:this.getQuestion(),answer:this.getAnswer()};
+
+                return temp;
+            }
         }
     }
 

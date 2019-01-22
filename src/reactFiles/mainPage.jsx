@@ -11,7 +11,8 @@ export default class FileChooser extends React.Component {
         super(props);
     }
 
-    handleFiles() {
+    handleFiles() //reads excel file when the start button is pressed
+    {
         window.excelReader = new excelReader();
         let e = document.getElementById("fileInput");
         let reader = new FileReader();

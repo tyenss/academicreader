@@ -22,6 +22,7 @@ export default class QAPage extends React.Component
         this.handleNext();
     }
 
+    //gets next question answer pair
     handleNext()
     {
         let temp=window.excelReader.getQuestionAnswer();
@@ -33,6 +34,19 @@ export default class QAPage extends React.Component
         )
     }
 
+    //gets previous question answer pair
+    handlePrevious()
+    {
+        let temp=window.excelReader.getQuestionAnswer();
+        this.setState(
+            {
+                question:temp.question,
+                answer:temp.answer
+            }
+        )
+    }
+
+    //Handles bonus questions and formats them
     handleBonus()
     {
         let temp=window.excelReader.getBonusQuestionAnswer();
@@ -63,6 +77,7 @@ export default class QAPage extends React.Component
             <div id={"qaPage"}>
                 <p className={"qa"}>{this.state.question}</p>
                 <p className={"qa"}>{this.state.answer}</p>
+                <button onClick={this.handlePrevious.bind(this)}>Previous Question</button>
                 <button onClick={this.handleNext.bind(this)}>Next Question</button>
                 <button onClick={this.handleBonus.bind(this)}>Bonus Question</button>
                 <button onClick={this.getTable.bind(this)}>QuestionList</button>
