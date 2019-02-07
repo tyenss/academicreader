@@ -8,19 +8,19 @@ self.__precacheManifest = [
     "url": "/academicreader/static/js/runtime~main.70a84698.js"
   },
   {
-    "revision": "ed27c6b52e8adc02046d",
-    "url": "/academicreader/static/js/main.ed27c6b5.chunk.js"
+    "revision": "eb17161d7a4ba69e631a",
+    "url": "/academicreader/static/js/main.eb17161d.chunk.js"
   },
   {
     "revision": "e7e9c45feb1d3c12ec83",
     "url": "/academicreader/static/js/1.e7e9c45f.chunk.js"
   },
   {
-    "revision": "ed27c6b52e8adc02046d",
-    "url": "/academicreader/static/css/main.f1f08a1e.chunk.css"
+    "revision": "eb17161d7a4ba69e631a",
+    "url": "/academicreader/static/css/main.092d937a.chunk.css"
   },
   {
-    "revision": "4239009814d5f336b212b8c4f4196619",
+    "revision": "a82bcb3b4d69fa7241314f111ceb7db6",
     "url": "/academicreader/index.html"
   }
 ];
